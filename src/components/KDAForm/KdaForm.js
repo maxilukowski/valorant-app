@@ -35,7 +35,7 @@ export default ({ onSubmit }) => {
 }
 
 const StyledForm = styled.form`
-  width: 20%;
+  width: 30%;
   display: flex;
   flex-direction: column;
   background: hotpink;

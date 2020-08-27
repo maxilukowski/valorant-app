@@ -7,7 +7,7 @@ export default ({ kda }) => {
 
 const Container = styled.div`
   background: steelblue;
-  width: 20%;
+  width: 30%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
