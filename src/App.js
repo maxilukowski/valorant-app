@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import KdaForm from './components/KDAForm/KdaForm'
+import DisplayStats from './components/DisplayStats'
 
-function App() {
+export default function App() {
+  const [kda, setKda] = useState(1)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>hallo welt</h1>
+      <KdaForm onSubmit={getKda} />
+      {/* @TODO 3 Would be great: Move right and display all form values */}
+      {/* @TODO 4 Optional: Try to store data into json-server */}
+      {/* @TODO 5 Optional: Try to read data from json-server */}
+      <DisplayStats kda={kda} />
     </div>
-  );
+  )
+  function getKda({ kill, death, assist }) {
+    setKda((kill + assist) / death)
+  }
 }
-
-export default App;
