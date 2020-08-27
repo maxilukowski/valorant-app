@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import MapOptions from './MapOptions'
 import WinOrLoss from './WinOrLoss'
 import styled from 'styled-components'
@@ -8,11 +8,11 @@ import { SubmitButton } from '../Button'
 
 export default ({ onSubmit }) => {
   // @TODO 2 Would be cool: Use useState hook instead of this object implementation
-  let data = {
-    kill: 2,
-    death: 2,
-    assist: 2,
-  }
+  const [kdaValue, setKdaValue] = useState({
+    kill: '',
+    death: '',
+    assist: '',
+  })
 
   return (
     <>
@@ -27,10 +27,11 @@ export default ({ onSubmit }) => {
   )
   function formSubmit(event) {
     event.preventDefault()
-    onSubmit(data)
+    onSubmit(kdaValue)
   }
   function updateData(name, value) {
-    data[name] = parseInt(value)
+    /*warum sind die brackets um name nötig?*/
+    setKdaValue({ ...kdaValue, [name]: parseInt(value) })
   }
 }
 

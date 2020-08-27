@@ -10,10 +10,11 @@ export default ({ updateData }) => {
         return (
           <StyledLabel key={value}>
             {value}
+            {/* wann benötigt mann bei inputfelder "name""value" etc?*/}
             <input
               type='number'
               onChange={(event) => updateData(value, event.target.value)}
-            ></input>
+            />
           </StyledLabel>
         )
       })}

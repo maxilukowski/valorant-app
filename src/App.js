@@ -3,7 +3,7 @@ import KdaForm from './components/KDAForm/KdaForm'
 import DisplayStats from './components/DisplayStats'
 
 export default function App() {
-  const [kda, setKda] = useState(1)
+  const [kda, setKda] = useState('')
   return (
     <div>
       <h1>hallo welt</h1>
