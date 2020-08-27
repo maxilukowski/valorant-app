@@ -4,6 +4,7 @@ import DisplayStats from './components/DisplayStats'
 
 export default function App() {
   const [kda, setKda] = useState('')
+  const [playedMap, setPlayedMap] = useState('')
   return (
     <div>
       <h1>hallo welt</h1>

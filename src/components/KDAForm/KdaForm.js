@@ -30,7 +30,7 @@ export default ({ onSubmit }) => {
     onSubmit(kdaValue)
   }
   function updateData(name, value) {
-    /*warum sind die brackets um name nötig?*/
+    /*warum sind die brackets um name nötig?// wieso benötige ich nichtmehr kdavalue[name]?*/
     setKdaValue({ ...kdaValue, [name]: parseInt(value) })
   }
 }
