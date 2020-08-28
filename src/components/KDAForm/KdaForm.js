@@ -7,7 +7,6 @@ import HeroOptions from './HeroOptions'
 import { SubmitButton } from '../Button'
 
 export default ({ onSubmit }) => {
-  // @TODO 2 Would be cool: Use useState hook instead of this object implementation
   const [kdaValue, setKdaValue] = useState({
     kill: '',
     death: '',
@@ -17,21 +16,30 @@ export default ({ onSubmit }) => {
   return (
     <>
       <StyledForm onSubmit={formSubmit}>
-        <InsertKda updateData={updateData} />
-        <MapOptions />
+        <InsertKda updateData={updateKda} />
+        <MapOptions updateData={updateMap} />
         <HeroOptions />
         <WinOrLoss />
         <SubmitButton />
       </StyledForm>
     </>
   )
+
   function formSubmit(event) {
     event.preventDefault()
-    onSubmit(kdaValue)
+    onSubmit({ kda: evaluateKda(kdaValue), map: updateMap() })
+    event.target.reset()
   }
-  function updateData(name, value) {
+  function updateKda(name, value) {
     /*warum sind die brackets um name nötig?// wieso benötige ich nichtmehr kdavalue[name]?*/
     setKdaValue({ ...kdaValue, [name]: parseInt(value) })
+  }
+  function evaluateKda({ kill, death, assist }) {
+    return (kill + assist) / death
+  }
+  function updateMap(map) {
+    console.log(map)
+    return map
   }
 }
 

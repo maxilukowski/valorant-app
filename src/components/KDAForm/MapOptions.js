@@ -3,11 +3,11 @@ import styled from 'styled-components'
 
 const mapList = ['Split', 'Bind', 'Haven', 'Ascent']
 
-export default () => {
+export default ({ updateData }) => {
   return (
     <Wrapper>
       map played
-      <select>
+      <select onChange={(event) => updateData(event.target.value)}>
         {mapList.map((mapName) => {
           return <option key={mapName}>{mapName}</option>
         })}
