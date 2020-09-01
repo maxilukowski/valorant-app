@@ -1,14 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default ({ kda }) => {
-  return <Container>kda of game: {kda}</Container>
+export default ({ kda, map, hero }) => {
+  return (
+    <Container>
+      <div>kda of game: {kda}</div>
+      <div>played map: {map}</div>
+      <div>hero played: {hero}</div>
+    </Container>
+  )
 }
 
 const Container = styled.div`
-  background: steelblue;
-  width: 30%;
   display: flex;
   flex-direction: column;
+  background: steelblue;
+  width: 30%;
   justify-content: space-between;
 `

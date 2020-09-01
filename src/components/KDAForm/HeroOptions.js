@@ -3,11 +3,19 @@ import styled from 'styled-components'
 
 const heroList = ['Sage', 'Sova', 'Pheonix', 'Omen']
 
-export default () => {
+export default ({ setFormData, formData }) => {
   return (
     <Wrapper>
       hero played
-      <select>
+      <select
+        value={formData.hero}
+        onChange={(event) =>
+          setFormData({ ...formData, hero: event.target.value })
+        }
+      >
+        <option value='' selected disabled hidden>
+          Choose here
+        </option>
         {heroList.map((heroName) => {
           return <option key={heroName}>{heroName}</option>
         })}

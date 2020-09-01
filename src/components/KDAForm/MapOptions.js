@@ -3,20 +3,25 @@ import styled from 'styled-components'
 
 const mapList = ['Split', 'Bind', 'Haven', 'Ascent']
 
-export default ({ updateData }) => {
+export default ({ setFormData, formData }) => {
   return (
-    <Wrapper>
+    <StyledLabel>
       map played
-      <select onChange={(event) => updateData(event.target.value)}>
+      <select
+        value={formData.map}
+        onChange={(event) =>
+          setFormData({ ...formData, map: event.target.value })
+        }
+      >
         {mapList.map((mapName) => {
           return <option key={mapName}>{mapName}</option>
         })}
       </select>
-    </Wrapper>
+    </StyledLabel>
   )
 }
 
-const Wrapper = styled.label`
+const StyledLabel = styled.label`
   display: flex;
   justify-content: space-between;
   margin: 10px 10px;

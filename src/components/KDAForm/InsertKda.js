@@ -3,23 +3,33 @@ import styled from 'styled-components'
 
 const KDA = ['kill', 'death', 'assist']
 
-export default ({ updateData }) => {
+export default ({ setFormData, formData }) => {
   return (
     <Container>
-      {KDA.map((value) => {
+      {KDA.map((formItemName) => {
         return (
-          <StyledLabel key={value}>
-            {value}
-            {/* wann benötigt mann bei inputfelder "name""value" etc?*/}
+          <StyledLabel key={formItemName}>
+            {formItemName}
             <input
+              name={formItemName}
               type='number'
-              onChange={(event) => updateData(value, event.target.value)}
+              value={formData[formItemName]}
+              onChange={(event) =>
+                setFormData({
+                  ...formData,
+                  [event.target.name]: event.target.value,
+                })
+              }
             />
           </StyledLabel>
         )
       })}
     </Container>
   )
+
+  /*   function handleChange(event) {
+    setForm({ ...form, [event.target.name]: event.target.value })
+  } */
 }
 
 const Container = styled.div`

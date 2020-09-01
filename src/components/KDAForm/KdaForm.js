@@ -1,45 +1,42 @@
 import React, { useState } from 'react'
+import InsertKda from './InsertKda'
 import MapOptions from './MapOptions'
 import WinOrLoss from './WinOrLoss'
 import styled from 'styled-components'
-import InsertKda from './InsertKda'
 import HeroOptions from './HeroOptions'
 import { SubmitButton } from '../Button'
 
 export default ({ onSubmit }) => {
-  const [kdaValue, setKdaValue] = useState({
+  const [form, setForm] = useState({
     kill: '',
     death: '',
     assist: '',
+    map: '',
+    hero: '',
   })
 
   return (
     <>
-      <StyledForm onSubmit={formSubmit}>
-        <InsertKda updateData={updateKda} />
-        <MapOptions updateData={updateMap} />
-        <HeroOptions />
+      <StyledForm onSubmit={handleSubmit}>
+        <InsertKda setFormData={setForm} formData={form} />
+        <MapOptions setFormData={setForm} formData={form} />
+        <HeroOptions setFormData={setForm} formData={form} />
         <WinOrLoss />
         <SubmitButton />
       </StyledForm>
     </>
   )
 
-  function formSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault()
-    onSubmit({ kda: evaluateKda(kdaValue), map: updateMap() })
+    onSubmit({ kda: evaluateKda(form), map: form.map, hero: form.hero })
     event.target.reset()
   }
-  function updateKda(name, value) {
-    /*warum sind die brackets um name nötig?// wieso benötige ich nichtmehr kdavalue[name]?*/
-    setKdaValue({ ...kdaValue, [name]: parseInt(value) })
-  }
+  /*   function handleChange(event) {
+    setForm({ ...form, [event.target.name]: event.target.value })
+  } */
   function evaluateKda({ kill, death, assist }) {
-    return (kill + assist) / death
-  }
-  function updateMap(map) {
-    console.log(map)
-    return map
+    return (parseInt(kill) + parseInt(assist)) / death
   }
 }
 
