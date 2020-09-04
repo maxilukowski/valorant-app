@@ -10,6 +10,7 @@ export default function App() {
 
   return (
     <Container>
+      <p>test</p>
       <KdaForm onSubmit={setAllInfo} />
       {/* @TODO 1 Would be great: Move right and display all form values */}
       {/* @TODO 2 udemy */}
