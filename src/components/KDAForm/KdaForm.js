@@ -13,6 +13,7 @@ export default ({ onSubmit }) => {
     assist: '',
     map: '',
     hero: '',
+    winOrLoss: '',
   })
 
   return (
@@ -21,7 +22,7 @@ export default ({ onSubmit }) => {
         <InsertKda setFormData={setForm} formData={form} />
         <MapOptions setFormData={setForm} formData={form} />
         <HeroOptions setFormData={setForm} formData={form} />
-        <WinOrLoss />
+        <WinOrLoss setFormData={setForm} formData={form} />
         <SubmitButton />
       </StyledForm>
     </>
@@ -29,7 +30,12 @@ export default ({ onSubmit }) => {
 
   function handleSubmit(event) {
     event.preventDefault()
-    onSubmit({ kda: evaluateKda(form), map: form.map, hero: form.hero })
+    onSubmit({
+      kda: evaluateKda(form),
+      map: form.map,
+      hero: form.hero,
+      winOrLoss: form.winOrLoss,
+    })
     event.target.reset()
   }
   /*   function handleChange(event) {

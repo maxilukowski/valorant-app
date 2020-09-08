@@ -1,13 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default () => {
+export default ({ setFormData, formData }) => {
   return (
     <Wrapper>
-      W/L
-      <select>
-        <option value='Win'>Win</option>
-        <option value='Loss'>Loss</option>
+      Win or Loss
+      <select
+        value={formData.winOrLoss}
+        onChange={(event) =>
+          setFormData({ ...formData, winOrLoss: event.target.value })
+        }
+      >
+        <option value='' disabled hidden>
+          W or L
+        </option>
+        <option>Win</option>
+        <option>Loss</option>
       </select>
     </Wrapper>
   )

@@ -13,8 +13,8 @@ export default ({ setFormData, formData }) => {
           setFormData({ ...formData, hero: event.target.value })
         }
       >
-        <option value='' selected disabled hidden>
-          Choose here
+        <option value='' disabled hidden>
+          hero
         </option>
         {heroList.map((heroName) => {
           return <option key={heroName}>{heroName}</option>

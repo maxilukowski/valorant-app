@@ -13,6 +13,9 @@ export default ({ setFormData, formData }) => {
           setFormData({ ...formData, map: event.target.value })
         }
       >
+        <option value='' disabled hidden>
+          map
+        </option>
         {mapList.map((mapName) => {
           return <option key={mapName}>{mapName}</option>
         })}
