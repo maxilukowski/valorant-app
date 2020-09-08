@@ -12,7 +12,17 @@ export default function App() {
   const [winOrLoss, setWinOrLoss] = useState('')
 
   useEffect(() => {
-    console.log(kda)
+    axios
+      .post('http://localhost:3000/stats', {
+        firstName: 'Fred',
+        lastName: 'Flintstone',
+      })
+      .then(function (response) {
+        console.log(response)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
   })
 
   return (
