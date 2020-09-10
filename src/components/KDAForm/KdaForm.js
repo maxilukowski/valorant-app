@@ -4,9 +4,9 @@ import MapOptions from './MapOptions'
 import WinOrLoss from './WinOrLoss'
 import styled from 'styled-components'
 import HeroOptions from './HeroOptions'
-import { SubmitButton } from '../Button'
+import { SubmitButton, ToggleButton } from '../Button'
 
-export default ({ onSubmit }) => {
+export default ({ onSubmit, switchPage }) => {
   const [form, setForm] = useState({
     kill: '',
     death: '',
@@ -17,7 +17,8 @@ export default ({ onSubmit }) => {
   })
 
   return (
-    <>
+    <Container>
+      <ToggleButton switchPage={switchPage} />
       <StyledForm onSubmit={handleSubmit}>
         <InsertKda setFormData={setForm} formData={form} />
         <MapOptions setFormData={setForm} formData={form} />
@@ -25,7 +26,7 @@ export default ({ onSubmit }) => {
         <WinOrLoss setFormData={setForm} formData={form} />
         <SubmitButton />
       </StyledForm>
-    </>
+    </Container>
   )
 
   function handleSubmit(event) {
@@ -38,18 +39,21 @@ export default ({ onSubmit }) => {
     })
     event.target.reset()
   }
-  /*   function handleChange(event) {
-    setForm({ ...form, [event.target.name]: event.target.value })
-  } */
+
   function evaluateKda({ kill, death, assist }) {
     return (parseInt(kill) + parseInt(assist)) / death
   }
 }
 
-const StyledForm = styled.form`
+const Container = styled.div`
   width: 30%;
   display: flex;
   flex-direction: column;
   background: hotpink;
   justify-content: space-between;
+`
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
 `

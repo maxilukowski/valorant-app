@@ -4,7 +4,7 @@ import DisplayStats from './components/DisplayStats'
 import styled from 'styled-components'
 import axios from 'axios'
 import { useEffect } from 'react'
-import StatsIndex from './components/StatsPage/StatsIndex'
+//import StatsIndex from './components/StatsPage/StatsIndex'
 
 export default function App() {
   const [kda, setKda] = useState('')
@@ -17,7 +17,6 @@ export default function App() {
 
   async function getUserData() {
     const { data } = await axios.get(process.env.REACT_APP_API_URL + '/stats')
-    console.log(data)
     setAllStats(data)
   }
   useEffect(() => {
@@ -25,9 +24,7 @@ export default function App() {
   }, [])
   return (
     <Container>
-      <KdaForm onSubmit={setAllInfo} />
-
-      <button onClick={() => setTogglePage(!togglePage)}>hi</button>
+      <KdaForm onSubmit={setAllInfo} switchPage={switchPage} />
       <DisplayStats
         kda={kda}
         map={playedMap}
@@ -43,18 +40,17 @@ export default function App() {
     setPlayedMap(map)
     setWinOrLoss(winOrLoss)
     //warum geht es nicht mit dem state? soll awaiten!
-    const { data } = await axios.post(
-      process.env.REACT_APP_API_URL + '/stats',
-      {
-        id: Date.now(),
-        kda,
-        heroPicked: hero,
-        mapPlayed: map,
-        winOrLoss,
-      }
-    )
-    console.log(data)
+    await axios.post(process.env.REACT_APP_API_URL + '/stats', {
+      id: Date.now(),
+      kda,
+      heroPicked: hero,
+      mapPlayed: map,
+      winOrLoss,
+    })
     getUserData()
+  }
+  function switchPage() {
+    setTogglePage(!togglePage)
   }
 }
 
