@@ -1,10 +1,67 @@
 {
   "stats": [
     {
+      "id": 1599655565149,
       "kda": 2,
-      "heroPicked": "Pheonix",
-      "mapPlayed": "Haven",
-      "lossOrWin": "Win"
+      "heroPicked": "Sage",
+      "mapPlayed": "Split",
+      "winOrLoss": "Win"
+    },
+    {
+      "id": 1599657352417,
+      "kda": 2,
+      "heroPicked": "",
+      "mapPlayed": "",
+      "winOrLoss": ""
+    },
+    {
+      "id": 1599657354260,
+      "kda": 2,
+      "heroPicked": "",
+      "mapPlayed": "",
+      "winOrLoss": ""
+    },
+    {
+      "id": 1599657479746,
+      "kda": null,
+      "heroPicked": "",
+      "mapPlayed": "",
+      "winOrLoss": ""
+    },
+    {
+      "id": 1599657486155,
+      "kda": 2,
+      "heroPicked": "",
+      "mapPlayed": "",
+      "winOrLoss": ""
+    },
+    {
+      "id": 1599657546675,
+      "kda": 2,
+      "heroPicked": "",
+      "mapPlayed": "",
+      "winOrLoss": ""
+    },
+    {
+      "id": 1599657550390,
+      "kda": 5.2272727272727275,
+      "heroPicked": "",
+      "mapPlayed": "",
+      "winOrLoss": ""
+    },
+    {
+      "id": 1599657552465,
+      "kda": 6.590909090909091,
+      "heroPicked": "",
+      "mapPlayed": "",
+      "winOrLoss": ""
+    },
+    {
+      "id": 1599657584002,
+      "kda": 2,
+      "heroPicked": "",
+      "mapPlayed": "",
+      "winOrLoss": ""
     }
   ]
 }
