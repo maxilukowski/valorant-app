@@ -4,6 +4,7 @@ import DisplayStats from './components/DisplayStats'
 import styled from 'styled-components'
 import axios from 'axios'
 import { useEffect } from 'react'
+import StatsIndex from './components/StatsPage/StatsIndex'
 
 export default function App() {
   const [kda, setKda] = useState('')
@@ -11,8 +12,10 @@ export default function App() {
   const [playedHero, setPlayedHero] = useState('')
   const [winOrLoss, setWinOrLoss] = useState('')
   const [allStats, setAllStats] = useState([])
+  const [togglePage, setTogglePage] = useState(true)
+  console.log(togglePage)
 
-  const getUserData = async () => {
+  async function getUserData() {
     const { data } = await axios.get(process.env.REACT_APP_API_URL + '/stats')
     console.log(data)
     setAllStats(data)
@@ -22,12 +25,9 @@ export default function App() {
   }, [])
   return (
     <Container>
-      <div>
-        {allStats.map((userData) => {
-          return <p key={userData.id}>{userData.id}</p>
-        })}
-      </div>
       <KdaForm onSubmit={setAllInfo} />
+
+      <button onClick={() => setTogglePage(!togglePage)}>hi</button>
       <DisplayStats
         kda={kda}
         map={playedMap}
@@ -53,6 +53,7 @@ export default function App() {
         winOrLoss,
       }
     )
+    console.log(data)
     getUserData()
   }
 }
