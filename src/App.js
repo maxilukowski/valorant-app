@@ -12,6 +12,7 @@ export default function App() {
   const [playedHero, setPlayedHero] = useState('')
   const [winOrLoss, setWinOrLoss] = useState('')
   const [allStats, setAllStats] = useState([])
+  // state und setstate runterreichen oder über handlerfunktion?
   const [togglePage, setTogglePage] = useState(true)
 
   async function getUserData() {
@@ -24,9 +25,17 @@ export default function App() {
   return (
     <Container>
       {togglePage ? (
-        <KdaForm onSubmit={setAllInfo} switchPage={switchPage} />
+        <KdaForm
+          onSubmit={setAllInfo}
+          switchPage={setTogglePage}
+          togglePage={togglePage}
+        />
       ) : (
-        <HistoryIndex switchPage={switchPage} gameStats={allStats} />
+        <HistoryIndex
+          switchPage={setTogglePage}
+          togglePage={togglePage}
+          gameStats={allStats}
+        />
       )}
 
       <DisplayStats
@@ -52,9 +61,6 @@ export default function App() {
       winOrLoss,
     })
     getUserData()
-  }
-  function switchPage() {
-    setTogglePage(!togglePage)
   }
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default ({ switchPage, gameStats }) => {
+export default ({ switchPage, gameStats, togglePage }) => {
   let sum = 0
   gameStats.forEach((game) => {
     sum += game.kda
@@ -12,7 +12,7 @@ export default ({ switchPage, gameStats }) => {
     <>
       <div>HistoryPage matches played{gameStats.length}</div>
       <div>your avg KDA = {avgKda}</div>
-      <button onClick={() => switchPage()}>switch </button>
+      <button onClick={() => switchPage(!togglePage)}>switch </button>
     </>
   )
 }

@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import HeroOptions from './HeroOptions'
 import { SubmitButton, ToggleButton } from '../Button'
 
-export default ({ onSubmit, switchPage }) => {
+export default ({ onSubmit, switchPage, togglePage }) => {
   const [form, setForm] = useState({
     kill: '',
     death: '',
@@ -18,7 +18,11 @@ export default ({ onSubmit, switchPage }) => {
 
   return (
     <Container>
-      <ToggleButton switchPage={switchPage} text='History' />
+      <ToggleButton
+        switchPage={switchPage}
+        togglePage={togglePage}
+        text='History'
+      />
       <StyledForm onSubmit={handleSubmit}>
         <InsertKda setFormData={setForm} formData={form} />
         <MapOptions setFormData={setForm} formData={form} />
