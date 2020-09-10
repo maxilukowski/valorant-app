@@ -18,7 +18,7 @@ export default ({ onSubmit, switchPage }) => {
 
   return (
     <Container>
-      <ToggleButton switchPage={switchPage} />
+      <ToggleButton switchPage={switchPage} text='History' />
       <StyledForm onSubmit={handleSubmit}>
         <InsertKda setFormData={setForm} formData={form} />
         <MapOptions setFormData={setForm} formData={form} />

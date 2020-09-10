@@ -4,7 +4,7 @@ import DisplayStats from './components/DisplayStats'
 import styled from 'styled-components'
 import axios from 'axios'
 import { useEffect } from 'react'
-//import StatsIndex from './components/StatsPage/StatsIndex'
+import HistoryIndex from './components/HistoryPage/HistoryIndex'
 
 export default function App() {
   const [kda, setKda] = useState('')
@@ -13,7 +13,6 @@ export default function App() {
   const [winOrLoss, setWinOrLoss] = useState('')
   const [allStats, setAllStats] = useState([])
   const [togglePage, setTogglePage] = useState(true)
-  console.log(togglePage)
 
   async function getUserData() {
     const { data } = await axios.get(process.env.REACT_APP_API_URL + '/stats')
@@ -21,10 +20,15 @@ export default function App() {
   }
   useEffect(() => {
     getUserData()
-  }, [])
+  }, [togglePage])
   return (
     <Container>
-      <KdaForm onSubmit={setAllInfo} switchPage={switchPage} />
+      {togglePage ? (
+        <KdaForm onSubmit={setAllInfo} switchPage={switchPage} />
+      ) : (
+        <HistoryIndex switchPage={switchPage} gameStats={allStats} />
+      )}
+
       <DisplayStats
         kda={kda}
         map={playedMap}

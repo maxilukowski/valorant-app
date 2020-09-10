@@ -5,9 +5,9 @@ export function SubmitButton() {
   return <StyledSubmitButton>submit</StyledSubmitButton>
 }
 
-export function ToggleButton({ switchPage }) {
+export function ToggleButton({ switchPage, text }) {
   return (
-    <StyledSubmitButton onClick={() => switchPage()}>switch</StyledSubmitButton>
+    <StyledSubmitButton onClick={() => switchPage()}>{text}</StyledSubmitButton>
   )
 }
 

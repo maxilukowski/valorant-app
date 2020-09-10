@@ -1,232 +1,29 @@
 {
   "stats": [
     {
-      "id": 1599655565149,
+      "id": 1599771844513,
       "kda": 2,
-      "heroPicked": "Sage",
-      "mapPlayed": "Split",
+      "heroPicked": "Sova",
+      "mapPlayed": "Bind",
       "winOrLoss": "Win"
     },
     {
-      "id": 1599657352417,
+      "id": 1599772376526,
       "kda": 2,
+      "heroPicked": "Sova",
+      "mapPlayed": "Bind",
+      "winOrLoss": "Win"
+    },
+    {
+      "id": 1599773178473,
+      "kda": 7,
       "heroPicked": "",
       "mapPlayed": "",
       "winOrLoss": ""
     },
     {
-      "id": 1599657354260,
-      "kda": 2,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599657479746,
-      "kda": null,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599657486155,
-      "kda": 2,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599657546675,
-      "kda": 2,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599657550390,
-      "kda": 5.2272727272727275,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599657552465,
-      "kda": 6.590909090909091,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599657584002,
-      "kda": 2,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599748361252,
-      "kda": null,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599769044543,
-      "kda": null,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599769279499,
-      "kda": null,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599769280304,
-      "kda": null,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599769280724,
-      "kda": null,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599769281220,
-      "kda": null,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599769283404,
-      "kda": null,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599770009283,
-      "kda": 2,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599770013273,
-      "kda": 2,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599770045174,
-      "kda": 2,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599770048242,
-      "kda": 2,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599770051760,
-      "kda": 563,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599770055131,
-      "kda": 561563,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599770326329,
-      "kda": null,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599770328912,
-      "kda": null,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599770338705,
-      "kda": null,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599770341045,
-      "kda": null,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599770419573,
-      "kda": null,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599770421646,
-      "kda": null,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599770591207,
-      "kda": null,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599770593200,
-      "kda": null,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599770595438,
-      "kda": null,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599770632743,
-      "kda": null,
-      "heroPicked": "",
-      "mapPlayed": "",
-      "winOrLoss": ""
-    },
-    {
-      "id": 1599770636637,
-      "kda": null,
+      "id": 1599773180486,
+      "kda": 7,
       "heroPicked": "",
       "mapPlayed": "",
       "winOrLoss": ""
