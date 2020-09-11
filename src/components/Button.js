@@ -18,3 +18,7 @@ const StyledSubmitButton = styled.button`
   margin: 10px 10px;
   align-self: flex-end;
 `
+/* const StyledToggleButton = styled.button`
+  width: 70px;
+  align-self: flex-end;
+` */

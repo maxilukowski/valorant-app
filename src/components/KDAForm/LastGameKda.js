@@ -2,7 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 
 export default ({ form, evaluateKda }) => {
-  return <Wrapper>your kda this game {evaluateKda(form)}</Wrapper>
+  return (
+    <Wrapper>
+      your kda this game <span>{evaluateKda(form)}</span>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.div`
