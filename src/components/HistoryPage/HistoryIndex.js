@@ -1,4 +1,6 @@
 import React from 'react'
+import { ToggleButton } from '../Button'
+import styled from 'styled-components'
 
 export default ({ switchPage, gameStats, togglePage }) => {
   let sum = 0
@@ -9,10 +11,23 @@ export default ({ switchPage, gameStats, togglePage }) => {
   const avgKda = sum / gameStats.length
 
   return (
-    <>
-      <div>HistoryPage matches played{gameStats.length}</div>
+    <Container>
+      <ToggleButton
+        switchPage={switchPage}
+        togglePage={togglePage}
+        text='Home'
+      />
+      <div>HistoryPage</div>
+      <div> matches played: {gameStats.length}</div>
       <div>your avg KDA = {avgKda}</div>
-      <button onClick={() => switchPage(!togglePage)}>switch </button>
-    </>
+    </Container>
   )
 }
+
+const Container = styled.div`
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  background: papayawhip;
+  justify-content: space-between;
+`
