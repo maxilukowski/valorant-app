@@ -5,6 +5,7 @@ import WinOrLoss from './WinOrLoss'
 import styled from 'styled-components'
 import HeroOptions from './HeroOptions'
 import { SubmitButton, ToggleButton } from '../Button'
+import LastGameKda from './LastGameKda'
 
 export default ({ onSubmit, switchPage, togglePage }) => {
   const [form, setForm] = useState({
@@ -25,6 +26,7 @@ export default ({ onSubmit, switchPage, togglePage }) => {
       />
       <StyledForm onSubmit={handleSubmit}>
         <InsertKda setFormData={setForm} formData={form} />
+        <LastGameKda form={form} evaluateKda={evaluateKda} />
         <MapOptions setFormData={setForm} formData={form} />
         <HeroOptions setFormData={setForm} formData={form} />
         <WinOrLoss setFormData={setForm} formData={form} />
@@ -45,7 +47,8 @@ export default ({ onSubmit, switchPage, togglePage }) => {
   }
 
   function evaluateKda({ kill, death, assist }) {
-    return (parseInt(kill) + parseInt(assist)) / death
+    if (kill && death && assist)
+      return ((parseInt(kill) + parseInt(assist)) / death).toFixed(1)
   }
 }
 
