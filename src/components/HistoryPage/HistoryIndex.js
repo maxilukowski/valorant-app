@@ -5,13 +5,12 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 
 export default ({ switchPage, gameStats, togglePage }) => {
-  const [sagePlayed, setSagePlayed] = useState('')
-  const [sovaPlayed, setSovaPlayed] = useState('')
-  const [pheonixPlayed, setPheonixPlayed] = useState('')
-  const [omenPlayed, setOmenPlayed] = useState('')
+  const [playedHeroAmount, setPlayedHeroAmount] = useState({})
+  console.log(playedHeroAmount)
+
   useEffect(() => {
     heroPickCounter(gameStats)
-  })
+  }, [gameStats])
 
   return (
     <Container>
@@ -25,10 +24,10 @@ export default ({ switchPage, gameStats, togglePage }) => {
       </StyledDiv>
       <div> matches played: {gameStats.length}</div>
       <div>your avg KDA :{getAvgKda(gameStats)} </div>
-      <div>sagepicks{sagePlayed}</div>
-      <div>sovapick{sovaPlayed}</div>
-      <div>pheonixpicks{pheonixPlayed}</div>
-      <div>omenpicks{omenPlayed}</div>
+      <div>sagepicks{playedHeroAmount.Sage}</div>
+      <div>sovapick{playedHeroAmount.Sova}</div>
+      <div>pheonixpicks{playedHeroAmount.Pheonix}</div>
+      <div>omenpicks{playedHeroAmount.Omen}</div>
     </Container>
   )
   function getAvgKda(gameStats) {
@@ -41,20 +40,18 @@ export default ({ switchPage, gameStats, togglePage }) => {
     return avgKda
   }
   function heroPickCounter(gameStats) {
-    let sagePlayedAmount = 0
-    let sovaPlayedAmount = 0
-    let pheonixPlayedAmount = 0
-    let omenPlayedAmount = 0
-    gameStats.forEach((game) => {
-      if (game.heroPicked === 'Sage') sagePlayedAmount++
-      if (game.heroPicked === 'Sova') sovaPlayedAmount++
-      if (game.heroPicked === 'Pheonix') pheonixPlayedAmount++
-      if (game.heroPicked === 'Omen') omenPlayedAmount++
-    })
-    setSagePlayed(sagePlayedAmount)
-    setSovaPlayed(sovaPlayedAmount)
-    setPheonixPlayed(pheonixPlayedAmount)
-    setOmenPlayed(omenPlayedAmount)
+    let heroesPicked = {}
+
+    gameStats
+      .map((game) => game.heroPicked)
+      .filter((hero) => hero !== '')
+      .forEach((hero) => {
+        if (!heroesPicked.hasOwnProperty(hero)) {
+          heroesPicked[hero] = 0
+        }
+        heroesPicked[hero]++
+      })
+    setPlayedHeroAmount(heroesPicked)
   }
 }
 

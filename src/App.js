@@ -7,13 +7,17 @@ import { useEffect } from 'react'
 import HistoryIndex from './components/HistoryPage/HistoryIndex'
 
 export default function App() {
+  //brauch ich euch noch?
   const [kda, setKda] = useState('')
   const [playedMap, setPlayedMap] = useState('')
   const [playedHero, setPlayedHero] = useState('')
   const [winOrLoss, setWinOrLoss] = useState('')
+  //---
   const [allStats, setAllStats] = useState([])
   // state und setstate runterreichen oder über handlerfunktion?
-  const [togglePage, setTogglePage] = useState(true)
+  // in function ändern
+  // services.js + (http service)
+  const [isKdaForm, setIsKdaForm] = useState(true)
 
   async function getUserData() {
     const { data } = await axios.get(process.env.REACT_APP_API_URL + '/stats')
@@ -21,19 +25,19 @@ export default function App() {
   }
   useEffect(() => {
     getUserData()
-  }, [togglePage])
+  }, [isKdaForm])
   return (
     <Container>
-      {togglePage ? (
+      {isKdaForm ? (
         <KdaForm
           onSubmit={setAllInfo}
-          switchPage={setTogglePage}
-          togglePage={togglePage}
+          switchPage={setIsKdaForm}
+          togglePage={isKdaForm}
         />
       ) : (
         <HistoryIndex
-          switchPage={setTogglePage}
-          togglePage={togglePage}
+          switchPage={setIsKdaForm}
+          togglePage={isKdaForm}
           gameStats={allStats}
         />
       )}
