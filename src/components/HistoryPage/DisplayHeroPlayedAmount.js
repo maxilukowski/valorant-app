@@ -1,9 +1,24 @@
 import React from 'react'
+
+export default ({ playedHeroAmount }) => {
+  return (
+    <>
+      {Object.entries(playedHeroAmount).map(([hero, amount]) => {
+        return (
+          <div key={hero}>
+            You played {hero} {amount} times
+          </div>
+        )
+      })}
+    </>
+  )
+}
+
+/* import React from 'react'
 import { ToggleButton } from '../Button'
 import styled from 'styled-components'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import DisplayHeroPlayedAmount from './DisplayHeroPlayedAmount'
 
 export default ({ switchPage, gameStats, togglePage }) => {
   const [playedHeroAmount, setPlayedHeroAmount] = useState({})
@@ -24,8 +39,13 @@ export default ({ switchPage, gameStats, togglePage }) => {
       </StyledDiv>
       <div> Matches played: {gameStats.length}</div>
       <div>Your avg KDA :{getAvgKda(gameStats)} </div>
-      {/* alphabetisch pls */}
-      <DisplayHeroPlayedAmount playedHeroAmount={playedHeroAmount} />
+      {Object.entries(playedHeroAmount).map(([hero, amount]) => {
+        return (
+          <div key={hero}>
+            You played {hero} {amount} times
+          </div>
+        )
+      })}
     </Container>
   )
 
@@ -53,17 +73,4 @@ export default ({ switchPage, gameStats, togglePage }) => {
       })
     setPlayedHeroAmount(heroesPicked)
   }
-}
-
-const Container = styled.div`
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-  background: papayawhip;
-  justify-content: space-between;
-`
-
-const StyledDiv = styled.div`
-  display: flex;
-  justify-content: space-between;
-`
+} */
