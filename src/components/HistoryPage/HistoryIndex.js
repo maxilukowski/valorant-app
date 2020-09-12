@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import DisplayHeroPlayedAmount from './DisplayHeroPlayedAmount'
+import LastFiveGames from './LastFiveGames'
 
 export default ({ gameStats, togglePage }) => {
   const [playedHeroAmount, setPlayedHeroAmount] = useState({})
@@ -22,6 +23,7 @@ export default ({ gameStats, togglePage }) => {
       <div>Your avg KDA :{getAvgKda(gameStats)} </div>
       {/* alphabetisch pls */}
       <DisplayHeroPlayedAmount playedHeroAmount={playedHeroAmount} />
+      <LastFiveGames gameStats={gameStats} />
     </Container>
   )
 

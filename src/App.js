@@ -10,13 +10,19 @@ export default function App() {
   // services.js + (http service)
   const [isKdaForm, setIsKdaForm] = useState(true)
 
+  console.log(
+    'multiple render because of useEffect and its condition, look into it'
+  )
+
   async function getUserData() {
     const { data } = await axios.get(process.env.REACT_APP_API_URL + '/stats')
     setAllStats(data)
   }
+
   useEffect(() => {
     getUserData()
   }, [isKdaForm])
+
   return (
     <Container>
       {isKdaForm ? (
