@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import DisplayHeroPlayedAmount from './DisplayHeroPlayedAmount'
 
-export default ({ switchPage, gameStats, togglePage }) => {
+export default ({ gameStats, togglePage }) => {
   const [playedHeroAmount, setPlayedHeroAmount] = useState({})
 
   useEffect(() => {
@@ -16,11 +16,7 @@ export default ({ switchPage, gameStats, togglePage }) => {
     <Container>
       <StyledDiv>
         <span style={{ margin: '10px 10px' }}>HistoryPage</span>
-        <ToggleButton
-          switchPage={switchPage}
-          togglePage={togglePage}
-          text='Home'
-        />
+        <ToggleButton togglePage={togglePage} text='Home' />
       </StyledDiv>
       <div> Matches played: {gameStats.length}</div>
       <div>Your avg KDA :{getAvgKda(gameStats)} </div>

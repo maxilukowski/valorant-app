@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import KdaForm from './components/KDAForm/KdaForm'
-import DisplayStats from './components/DisplayStats'
 import styled from 'styled-components'
 import axios from 'axios'
 import { useEffect } from 'react'
@@ -8,8 +7,6 @@ import HistoryIndex from './components/HistoryPage/HistoryIndex'
 
 export default function App() {
   const [allStats, setAllStats] = useState([])
-  // state und setstate runterreichen oder über handlerfunktion?
-  // in function ändern
   // services.js + (http service)
   const [isKdaForm, setIsKdaForm] = useState(true)
 
@@ -23,17 +20,9 @@ export default function App() {
   return (
     <Container>
       {isKdaForm ? (
-        <KdaForm
-          onSubmit={setAllInfo}
-          switchPage={setIsKdaForm}
-          togglePage={isKdaForm}
-        />
+        <KdaForm onSubmit={setAllInfo} togglePage={togglePages} />
       ) : (
-        <HistoryIndex
-          switchPage={setIsKdaForm}
-          togglePage={isKdaForm}
-          gameStats={allStats}
-        />
+        <HistoryIndex togglePage={togglePages} gameStats={allStats} />
       )}
     </Container>
   )
@@ -47,6 +36,9 @@ export default function App() {
       winOrLoss,
     })
     getUserData()
+  }
+  function togglePages() {
+    setIsKdaForm(!isKdaForm)
   }
 }
 

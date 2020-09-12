@@ -7,7 +7,7 @@ import HeroOptions from './HeroOptions'
 import { SubmitButton, ToggleButton } from '../Button'
 import LastGameKda from './LastGameKda'
 
-export default ({ onSubmit, switchPage, togglePage }) => {
+export default ({ onSubmit, togglePage }) => {
   const [form, setForm] = useState({
     kill: '',
     death: '',
@@ -19,11 +19,7 @@ export default ({ onSubmit, switchPage, togglePage }) => {
 
   return (
     <Container>
-      <ToggleButton
-        switchPage={switchPage}
-        togglePage={togglePage}
-        text='History'
-      />
+      <ToggleButton togglePage={togglePage} text='History' />
       <StyledForm onSubmit={handleSubmit}>
         <InsertKda setFormData={setForm} formData={form} />
         <LastGameKda form={form} evaluateKda={evaluateKda} />
