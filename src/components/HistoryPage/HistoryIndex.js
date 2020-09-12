@@ -6,7 +6,6 @@ import { useEffect } from 'react'
 
 export default ({ switchPage, gameStats, togglePage }) => {
   const [playedHeroAmount, setPlayedHeroAmount] = useState({})
-  console.log(playedHeroAmount)
 
   useEffect(() => {
     heroPickCounter(gameStats)
@@ -22,14 +21,18 @@ export default ({ switchPage, gameStats, togglePage }) => {
           text='Home'
         />
       </StyledDiv>
-      <div> matches played: {gameStats.length}</div>
-      <div>your avg KDA :{getAvgKda(gameStats)} </div>
-      <div>sagepicks{playedHeroAmount.Sage}</div>
-      <div>sovapick{playedHeroAmount.Sova}</div>
-      <div>pheonixpicks{playedHeroAmount.Pheonix}</div>
-      <div>omenpicks{playedHeroAmount.Omen}</div>
+      <div> Matches played: {gameStats.length}</div>
+      <div>Your avg KDA :{getAvgKda(gameStats)} </div>
+      {Object.entries(playedHeroAmount).map(([hero, amount]) => {
+        return (
+          <div key={hero}>
+            You played {hero} {amount} times
+          </div>
+        )
+      })}
     </Container>
   )
+
   function getAvgKda(gameStats) {
     let sum = 0
     gameStats.forEach((game) => {
@@ -39,6 +42,7 @@ export default ({ switchPage, gameStats, togglePage }) => {
     const avgKda = sum / gameStats.length
     return avgKda
   }
+
   function heroPickCounter(gameStats) {
     let heroesPicked = {}
 
