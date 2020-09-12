@@ -7,12 +7,6 @@ import { useEffect } from 'react'
 import HistoryIndex from './components/HistoryPage/HistoryIndex'
 
 export default function App() {
-  //brauch ich euch noch?
-  const [kda, setKda] = useState('')
-  const [playedMap, setPlayedMap] = useState('')
-  const [playedHero, setPlayedHero] = useState('')
-  const [winOrLoss, setWinOrLoss] = useState('')
-  //---
   const [allStats, setAllStats] = useState([])
   // state und setstate runterreichen oder über handlerfunktion?
   // in function ändern
@@ -41,22 +35,10 @@ export default function App() {
           gameStats={allStats}
         />
       )}
-
-      <DisplayStats
-        kda={kda}
-        map={playedMap}
-        hero={playedHero}
-        winOrLoss={winOrLoss}
-      />
     </Container>
   )
 
   async function setAllInfo({ hero, kda, map, winOrLoss }) {
-    setPlayedHero(hero)
-    setKda(kda)
-    setPlayedMap(map)
-    setWinOrLoss(winOrLoss)
-    //warum geht es nicht mit dem state? soll awaiten!
     await axios.post(process.env.REACT_APP_API_URL + '/stats', {
       id: Date.now(),
       kda,

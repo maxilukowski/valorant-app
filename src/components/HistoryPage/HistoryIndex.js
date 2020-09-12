@@ -36,7 +36,7 @@ export default ({ switchPage, gameStats, togglePage }) => {
       return sum
     })
     const avgKda = sum / gameStats.length
-    return avgKda
+    return avgKda.toFixed(1)
   }
 
   function heroPickCounter(gameStats) {

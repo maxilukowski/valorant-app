@@ -47,9 +47,12 @@ export default ({ onSubmit, switchPage, togglePage }) => {
   }
 
   function evaluateKda({ kill, death, assist }) {
-    if (kill && death && assist)
-      return parseInt(((parseInt(kill) + parseInt(assist)) / death).toFixed(1))
-    else return 0
+    let kda
+    if (kill && death && assist) {
+      kda = (parseInt(kill) + parseInt(assist)) / death
+      if (kda / Math.round(kda) === 1) return kda
+      else return kda.toFixed(1)
+    } else return 0
   }
 }
 
