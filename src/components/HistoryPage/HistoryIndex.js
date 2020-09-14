@@ -5,13 +5,15 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import DisplayHeroPlayedAmount from './DisplayHeroPlayedAmount'
 import LastFiveGames from './LastFiveGames'
+import DisplayMapPlayedAmount from './DisplayMapPlayedAmount'
 
 export default ({ gameStats, togglePage }) => {
   const [playedHeroAmount, setPlayedHeroAmount] = useState({})
+  const [playedMapAmount, setPlayedMapAmount] = useState({})
 
   useEffect(() => {
-    heroPickCounter(gameStats)
-  }, [gameStats])
+    statsCounter(gameStats)
+  }, [])
 
   return (
     <Container>
@@ -22,7 +24,16 @@ export default ({ gameStats, togglePage }) => {
       <div> Matches played: {gameStats.length}</div>
       <div>Your avg KDA :{getAvgKda(gameStats)} </div>
       {/* alphabetisch pls */}
-      <DisplayHeroPlayedAmount playedHeroAmount={playedHeroAmount} />
+      {
+        <SplitDisplay>
+          <div>
+            <DisplayHeroPlayedAmount playedHeroAmount={playedHeroAmount} />
+          </div>
+          <div>
+            <DisplayMapPlayedAmount playedMapAmount={playedMapAmount} />
+          </div>
+        </SplitDisplay>
+      }
       <LastFiveGames gameStats={gameStats} />
     </Container>
   )
@@ -37,9 +48,13 @@ export default ({ gameStats, togglePage }) => {
     return avgKda.toFixed(1)
   }
 
-  function heroPickCounter(gameStats) {
-    let heroesPicked = {}
+  function statsCounter(gameStats) {
+    setPlayedHeroAmount(heroPicked(gameStats))
+    setPlayedMapAmount(mapPlayed(gameStats))
+  }
 
+  function heroPicked(gameStats) {
+    let heroesPicked = {}
     gameStats
       .map((game) => game.heroPicked)
       .filter((hero) => hero !== '')
@@ -49,7 +64,20 @@ export default ({ gameStats, togglePage }) => {
         }
         heroesPicked[hero]++
       })
-    setPlayedHeroAmount(heroesPicked)
+    return heroesPicked
+  }
+  function mapPlayed(gameStats) {
+    let mapPlayed = {}
+    gameStats
+      .map((game) => game.mapPlayed)
+      .filter((map) => map !== '')
+      .forEach((map) => {
+        if (!mapPlayed.hasOwnProperty(map)) {
+          mapPlayed[map] = 0
+        }
+        mapPlayed[map]++
+      })
+    return mapPlayed
   }
 }
 
@@ -63,5 +91,11 @@ const Container = styled.div`
 
 const StyledDiv = styled.div`
   display: flex;
+  justify-content: space-between;
+`
+
+const SplitDisplay = styled.div`
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
 `
