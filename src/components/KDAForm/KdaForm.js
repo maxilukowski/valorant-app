@@ -39,7 +39,7 @@ export default ({ onSubmit, togglePage }) => {
       hero: form.hero,
       winOrLoss: form.winOrLoss,
     })
-    event.target.reset()
+    resetForm()
   }
 
   function evaluateKda({ kill, death, assist }) {
@@ -49,6 +49,17 @@ export default ({ onSubmit, togglePage }) => {
       if (kda / Math.round(kda) === 1) return kda
       else return kda.toFixed(1)
     } else return 0
+  }
+
+  function resetForm() {
+    setForm({
+      kill: '',
+      death: '',
+      assist: '',
+      map: '',
+      hero: '',
+      winOrLoss: '',
+    })
   }
 }
 

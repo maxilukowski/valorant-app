@@ -202,6 +202,27 @@
       "heroPicked": "Omen",
       "mapPlayed": "Ascent",
       "winOrLoss": "Win"
+    },
+    {
+      "id": 1600179296497,
+      "kda": 2,
+      "heroPicked": "Sage",
+      "mapPlayed": "Split",
+      "winOrLoss": "Win"
+    },
+    {
+      "id": 1600179298809,
+      "kda": 2,
+      "heroPicked": "Sage",
+      "mapPlayed": "Split",
+      "winOrLoss": "Win"
+    },
+    {
+      "id": 1600179554160,
+      "kda": 2,
+      "heroPicked": "Sage",
+      "mapPlayed": "Split",
+      "winOrLoss": "Win"
     }
   ]
 }
