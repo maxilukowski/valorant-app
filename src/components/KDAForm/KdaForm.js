@@ -53,11 +53,10 @@ export default ({ onSubmit, togglePage }) => {
 }
 
 const Container = styled.div`
-  width: 30%;
   display: flex;
   flex-direction: column;
   background: hotpink;
-  justify-content: space-between;
+  height: 100vh;
 `
 
 const StyledForm = styled.form`

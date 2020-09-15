@@ -3,9 +3,8 @@ import { ToggleButton } from '../Button'
 import styled from 'styled-components'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import DisplayHeroPlayedAmount from './DisplayHeroPlayedAmount'
+import DisplayHeroAndMapPlayed from './DisplayHeroAndMapPlayed'
 import LastFiveGames from './LastFiveGames'
-import DisplayMapPlayedAmount from './DisplayMapPlayedAmount'
 
 export default ({ gameStats, togglePage }) => {
   const [playedHeroAmount, setPlayedHeroAmount] = useState({})
@@ -18,22 +17,15 @@ export default ({ gameStats, togglePage }) => {
   return (
     <Container>
       <StyledDiv>
-        <span style={{ margin: '10px 10px' }}>HistoryPage</span>
+        <span style={{ marginTop: '10px ' }}>HistoryPage</span>
         <ToggleButton togglePage={togglePage} text='Home' />
       </StyledDiv>
       <div> Matches played: {gameStats.length}</div>
       <div>Your avg KDA :{getAvgKda(gameStats)} </div>
-      {/* alphabetisch pls */}
-      {
-        <SplitDisplay>
-          <div>
-            <DisplayHeroPlayedAmount playedHeroAmount={playedHeroAmount} />
-          </div>
-          <div>
-            <DisplayMapPlayedAmount playedMapAmount={playedMapAmount} />
-          </div>
-        </SplitDisplay>
-      }
+      <DisplayHeroAndMapPlayed
+        playedHeroAmount={playedHeroAmount}
+        playedMapAmount={playedMapAmount}
+      />
       <LastFiveGames gameStats={gameStats} />
     </Container>
   )
@@ -82,20 +74,16 @@ export default ({ gameStats, togglePage }) => {
 }
 
 const Container = styled.div`
-  width: 30%;
   display: flex;
   flex-direction: column;
-  background: papayawhip;
+  background: tomato;
   justify-content: space-between;
+  min-height: 100vh;
+  height: 100%;
+  padding-left: 10px;
 `
 
 const StyledDiv = styled.div`
   display: flex;
-  justify-content: space-between;
-`
-
-const SplitDisplay = styled.div`
-  display: flex;
-  flex-direction: row;
   justify-content: space-between;
 `
