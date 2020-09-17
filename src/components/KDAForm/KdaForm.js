@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import HeroOptions from './HeroOptions'
 import { SubmitButton, ToggleButton } from '../Button'
 import LastGameKda from './LastGameKda'
+import { Link } from 'react-router-dom'
 
 export default ({ onSubmit, togglePage }) => {
   const [form, setForm] = useState({
@@ -19,7 +20,9 @@ export default ({ onSubmit, togglePage }) => {
 
   return (
     <Container>
-      <ToggleButton togglePage={togglePage} text='History' />
+      <Link to='/History'>
+        <ToggleButton togglePage={togglePage} text='History' />
+      </Link>
       <StyledForm onSubmit={handleSubmit}>
         <InsertKda setFormData={setForm} formData={form} />
         <LastGameKda evaluateKda={evaluateKda} formData={form} />

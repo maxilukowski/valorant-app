@@ -5,22 +5,35 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import DisplayHeroAndMapPlayed from './DisplayHeroAndMapPlayed'
 import LastFiveGames from './LastFiveGames'
+import { Link } from 'react-router-dom'
 
 export default ({ gameStats, togglePage }) => {
   const [gameStatsCounted, setGameStatsCounted] = useState({
     heroes: {},
     maps: {},
   })
-
   useEffect(() => {
     setGameStatsCounted(getGameStats(gameStats))
   }, [gameStats])
 
+  //-------------------------------------------------------------------------------
+
+  const filteredKeys = ['heroPicked', 'mapPlayed']
+
+  const filtered = gameStats.map((game) => {
+    return { heroPicked: game.heroPicked, mapPlayed: game.mapPlayed }
+  })
+
+  console.log('123', filtered)
+  console.log(gameStats)
+  //-------------------------------------------------------------------------------
   return (
     <Container>
       <StyledDiv>
         <span style={{ marginTop: '10px ' }}>HistoryPage</span>
-        <ToggleButton togglePage={togglePage} text='Home' />
+        <Link to='/Home'>
+          <ToggleButton togglePage={togglePage} text='Home' />
+        </Link>
       </StyledDiv>
       <div> Matches played: {gameStats.length}</div>
       <div>Your avg KDA :{getAvgKda(gameStats)} </div>

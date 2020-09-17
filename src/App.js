@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import axios from 'axios'
 import { useEffect } from 'react'
 import HistoryIndex from './components/HistoryPage/HistoryIndex'
+import { Switch, Route, Redirect } from 'react-router-dom'
 
 export default function App() {
   const [allStats, setAllStats] = useState([])
@@ -21,10 +22,19 @@ export default function App() {
 
   return (
     <Container>
+      <Redirect exact from='/' to='Home' />
       {isKdaForm ? (
-        <KdaForm onSubmit={setAllInfo} togglePage={togglePages} />
+        <Switch>
+          <Route path='/'>
+            <KdaForm onSubmit={setAllInfo} togglePage={togglePages} />
+          </Route>
+        </Switch>
       ) : (
-        <HistoryIndex togglePage={togglePages} gameStats={allStats} />
+        <Switch>
+          <Route path='/History'>
+            <HistoryIndex togglePage={togglePages} gameStats={allStats} />
+          </Route>
+        </Switch>
       )}
     </Container>
   )
