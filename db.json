@@ -244,6 +244,34 @@
       "heroPicked": "Omen",
       "mapPlayed": "Ascent",
       "winOrLoss": ""
+    },
+    {
+      "id": 1600346939724,
+      "kda": 0,
+      "heroPicked": "",
+      "mapPlayed": "",
+      "winOrLoss": ""
+    },
+    {
+      "id": 1600347755147,
+      "kda": 0,
+      "heroPicked": "Pheonix",
+      "mapPlayed": "",
+      "winOrLoss": ""
+    },
+    {
+      "id": 1600350122276,
+      "kda": 78,
+      "heroPicked": "Sova",
+      "mapPlayed": "Split",
+      "winOrLoss": "Loss"
+    },
+    {
+      "id": 1600350150545,
+      "kda": 2,
+      "heroPicked": "Sage",
+      "mapPlayed": "Split",
+      "winOrLoss": "Win"
     }
   ]
 }

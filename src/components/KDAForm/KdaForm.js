@@ -22,7 +22,7 @@ export default ({ onSubmit, togglePage }) => {
       <ToggleButton togglePage={togglePage} text='History' />
       <StyledForm onSubmit={handleSubmit}>
         <InsertKda setFormData={setForm} formData={form} />
-        <LastGameKda form={form} evaluateKda={evaluateKda} />
+        <LastGameKda evaluateKda={evaluateKda} formData={form} />
         <MapOptions setFormData={setForm} formData={form} />
         <HeroOptions setFormData={setForm} formData={form} />
         <WinOrLoss setFormData={setForm} formData={form} />

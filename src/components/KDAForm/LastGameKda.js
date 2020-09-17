@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default ({ form, evaluateKda }) => {
+export default ({ formData, evaluateKda }) => {
   return (
     <Wrapper>
-      your kda this game <span>{evaluateKda(form)}</span>
+      your kda this game <span>{evaluateKda(formData)}</span>
     </Wrapper>
   )
 }
