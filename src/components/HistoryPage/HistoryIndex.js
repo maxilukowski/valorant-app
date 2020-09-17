@@ -7,12 +7,16 @@ import DisplayHeroAndMapPlayed from './DisplayHeroAndMapPlayed'
 import LastFiveGames from './LastFiveGames'
 
 export default ({ gameStats, togglePage }) => {
-  const [playedHeroAmount, setPlayedHeroAmount] = useState({})
-  const [playedMapAmount, setPlayedMapAmount] = useState({})
+  /* const [playedHeroAmount, setPlayedHeroAmount] = useState({})
+  const [playedMapAmount, setPlayedMapAmount] = useState({}) */
+  const [gameStatsCounted, setGameStatsCounted] = useState({
+    heroes: {},
+    maps: {},
+  })
 
   useEffect(() => {
-    statsCounter(gameStats)
-  }, [])
+    setGameStatsCounted(getGameStats(gameStats))
+  }, [gameStats])
 
   return (
     <Container>
@@ -22,10 +26,7 @@ export default ({ gameStats, togglePage }) => {
       </StyledDiv>
       <div> Matches played: {gameStats.length}</div>
       <div>Your avg KDA :{getAvgKda(gameStats)} </div>
-      <DisplayHeroAndMapPlayed
-        playedHeroAmount={playedHeroAmount}
-        playedMapAmount={playedMapAmount}
-      />
+      <DisplayHeroAndMapPlayed gameStatsCounted={gameStatsCounted} />
       <LastFiveGames gameStats={gameStats} />
     </Container>
   )
@@ -40,25 +41,41 @@ export default ({ gameStats, togglePage }) => {
     return avgKda.toFixed(1)
   }
 
-  function statsCounter(gameStats) {
-    setPlayedHeroAmount(heroPicked(gameStats))
-    setPlayedMapAmount(mapPlayed(gameStats))
-  }
+  /* setPlayedHeroAmount(heroPicked(gameStats)) */
+  /* setPlayedMapAmount(mapPlayed(gameStats)) */
 
-  function heroPicked(gameStats) {
-    let heroesPicked = {}
+  /*   .map((game) => {
+    return {
+      heroPicked: game.heroPicked,
+      mapPlayed: game.mapPlayed
+    }}) */
+
+  function getGameStats(gameStats) {
+    let gameStatsCounter = {
+      maps: {},
+      heroes: {},
+    }
     gameStats
-      .map((game) => game.heroPicked)
-      .filter((hero) => hero !== '')
-      .forEach((hero) => {
-        if (!heroesPicked.hasOwnProperty(hero)) {
-          heroesPicked[hero] = 0
+      .map((game) => ({
+        heroPicked: game.heroPicked,
+        mapPlayed: game.mapPlayed,
+      }))
+      .filter(({ mapPlayed }) => mapPlayed !== '')
+      .filter(({ heroPicked }) => heroPicked !== '')
+      //mby hübsher---------------------------------------------------------------?
+      .forEach(({ heroPicked, mapPlayed }) => {
+        if (!gameStatsCounter.heroes.hasOwnProperty(heroPicked)) {
+          gameStatsCounter.heroes[heroPicked] = 0
         }
-        heroesPicked[hero]++
+        if (!gameStatsCounter.maps.hasOwnProperty(mapPlayed)) {
+          gameStatsCounter.maps[mapPlayed] = 0
+        }
+        gameStatsCounter.heroes[heroPicked]++
+        gameStatsCounter.maps[mapPlayed]++
       })
-    return heroesPicked
+    return gameStatsCounter
   }
-  function mapPlayed(gameStats) {
+  /*   function mapPlayed(gameStats) {
     let mapPlayed = {}
     gameStats
       .map((game) => game.mapPlayed)
@@ -70,7 +87,7 @@ export default ({ gameStats, togglePage }) => {
         mapPlayed[map]++
       })
     return mapPlayed
-  }
+  } */
 }
 
 const Container = styled.div`

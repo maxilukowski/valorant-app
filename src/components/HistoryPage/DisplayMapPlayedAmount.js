@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default ({ playedMapAmount }) => {
+export default ({ maps }) => {
   const orderedMapList = {}
-  Object.keys(playedMapAmount)
+  Object.keys(maps)
     .sort()
-    .forEach((key) => (orderedMapList[key] = playedMapAmount[key]))
+    .forEach((key) => (orderedMapList[key] = maps[key]))
   return (
     <Container>
       {Object.entries(orderedMapList).map(([map, amount]) => {

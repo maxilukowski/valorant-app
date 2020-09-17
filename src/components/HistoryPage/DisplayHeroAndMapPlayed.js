@@ -3,14 +3,14 @@ import DisplayMapPlayedAmount from './DisplayMapPlayedAmount'
 import DisplayHeroPlayedAmount from './DisplayHeroPlayedAmount'
 import styled from 'styled-components'
 
-export default ({ playedHeroAmount, playedMapAmount }) => {
+export default ({ gameStatsCounted: { heroes, maps } }) => {
   return (
     <SplitDisplay>
       <div>
-        <DisplayHeroPlayedAmount playedHeroAmount={playedHeroAmount} />
+        <DisplayHeroPlayedAmount heroes={heroes} />
       </div>
       <div>
-        <DisplayMapPlayedAmount playedMapAmount={playedMapAmount} />
+        <DisplayMapPlayedAmount maps={maps} />
       </div>
     </SplitDisplay>
   )

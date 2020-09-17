@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default ({ playedHeroAmount }) => {
+export default ({ heroes }) => {
   const orderedHeroList = {}
-  Object.keys(playedHeroAmount)
+  Object.keys(heroes)
     .sort()
-    .forEach((key) => (orderedHeroList[key] = playedHeroAmount[key]))
+    .forEach((key) => (orderedHeroList[key] = heroes[key]))
   return (
     <Container>
       {Object.entries(orderedHeroList).map(([hero, amount]) => {
