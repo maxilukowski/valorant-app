@@ -7,26 +7,19 @@ import DisplayHeroAndMapPlayed from './DisplayHeroAndMapPlayed'
 import LastFiveGames from './LastFiveGames'
 import { Link } from 'react-router-dom'
 
+const gameStatsKeys = ['mapPlayed', 'heroPicked']
+
 export default ({ gameStats, togglePage }) => {
   const [gameStatsCounted, setGameStatsCounted] = useState({
-    heroes: {},
-    maps: {},
+    heroPicked: {},
+    mapPlayed: {},
   })
+
   useEffect(() => {
-    setGameStatsCounted(getGameStats(gameStats))
+    const gameStatsCounters = iterateGameStatsKeys(gameStats, gameStatsKeys)
+    setGameStatsCounted(gameStatsCounters)
   }, [gameStats])
 
-  //-------------------------------------------------------------------------------
-
-  const filteredKeys = ['heroPicked', 'mapPlayed']
-
-  const filtered = gameStats.map((game) => {
-    return { heroPicked: game.heroPicked, mapPlayed: game.mapPlayed }
-  })
-
-  console.log('123', filtered)
-  console.log(gameStats)
-  //-------------------------------------------------------------------------------
   return (
     <Container>
       <StyledDiv>
@@ -51,34 +44,30 @@ export default ({ gameStats, togglePage }) => {
     const avgKda = sum / gameStats.length
     return avgKda.toFixed(1)
   }
+}
 
-  function getGameStats(gameStats) {
-    let gameStatsCounter = {
-      maps: {},
-      heroes: {},
-    }
-    gameStats
-      .map((game) => {
-        return {
-          heroPicked: game.heroPicked,
-          mapPlayed: game.mapPlayed,
-        }
-      })
-      .filter(({ mapPlayed }) => mapPlayed !== '')
-      .filter(({ heroPicked }) => heroPicked !== '')
-      //mby hübsher---------------------------------------------------------------?
-      .forEach(({ heroPicked, mapPlayed }) => {
-        if (!gameStatsCounter.heroes.hasOwnProperty(heroPicked)) {
-          gameStatsCounter.heroes[heroPicked] = 0
-        }
-        if (!gameStatsCounter.maps.hasOwnProperty(mapPlayed)) {
-          gameStatsCounter.maps[mapPlayed] = 0
-        }
-        gameStatsCounter.heroes[heroPicked]++
-        gameStatsCounter.maps[mapPlayed]++
-      })
-    return gameStatsCounter
-  }
+function iterateGameStatsKeys(gameStats, array) {
+  const gameStatsCounters = {}
+
+  array.forEach(
+    (key) => (gameStatsCounters[key] = getGameStatsCounter(gameStats, key))
+  )
+
+  return gameStatsCounters
+}
+
+function getGameStatsCounter(gameStats, gameKey) {
+  const gameStatsCounter = {}
+  gameStats
+    .map((game) => game[gameKey])
+    .filter((selectedKey) => selectedKey !== '')
+    .forEach((selectedKey) => {
+      if (!gameStatsCounter[selectedKey]) {
+        gameStatsCounter[selectedKey] = 0
+      }
+      gameStatsCounter[selectedKey]++
+    })
+  return gameStatsCounter
 }
 
 const Container = styled.div`
