@@ -36,9 +36,10 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding-top: 20px;
 `
 const StyledLabel = styled.label`
   display: flex;
   justify-content: space-between;
-  margin: 10px 10px;
+  padding-top: 10px;
 `

@@ -67,13 +67,15 @@ export default ({ onSubmit, togglePage }) => {
 }
 
 const Container = styled.div`
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  background: hotpink;
+  background: #e9c46a;
   height: 100vh;
 `
 
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
+  padding-top: 20px;
 `

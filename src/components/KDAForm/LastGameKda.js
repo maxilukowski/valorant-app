@@ -12,5 +12,5 @@ export default ({ formData, evaluateKda }) => {
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 10px 10px;
+  padding-top: 10px;
 `
