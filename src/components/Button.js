@@ -2,16 +2,17 @@ import React from 'react'
 import styled from 'styled-components'
 
 export function SubmitButton() {
-  return <StyledSubmitButton>submit</StyledSubmitButton>
+  return <StyledToggleButton>submit</StyledToggleButton>
 }
 
 export function ToggleButton({ text, togglePage }) {
   return (
-    <StyledSubmitButton onClick={() => togglePage()}>{text}</StyledSubmitButton>
+    <StyledToggleButton onClick={() => togglePage()}>{text}</StyledToggleButton>
   )
 }
 
-const StyledSubmitButton = styled.button`
+const StyledToggleButton = styled.button`
+  display: inline-block;
   align-self: flex-end;
   box-shadow: inset 0 -0.6em 1em -0.35em rgba(0, 0, 0, 0.17),
     inset 0 0.6em 2em -0.3em rgba(255, 255, 255, 0.15),
@@ -22,4 +23,5 @@ const StyledSubmitButton = styled.button`
   border: none;
   text-align: center;
   border-radius: 4px;
+  outline: none;
 `

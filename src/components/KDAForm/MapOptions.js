@@ -27,5 +27,5 @@ export default ({ setFormData, formData }) => {
 const StyledLabel = styled.label`
   display: flex;
   justify-content: space-between;
-  padding-top: 10px;
+  padding-top: 30px;
 `

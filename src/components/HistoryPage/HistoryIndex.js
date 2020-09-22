@@ -71,6 +71,7 @@ function getGameStatsCounter(gameStats, gameKey) {
 }
 
 const Container = styled.div`
+  padding-top: 50px;
   display: flex;
   flex-direction: column;
   background: tomato;

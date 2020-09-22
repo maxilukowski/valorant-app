@@ -24,5 +24,5 @@ export default ({ setFormData, formData }) => {
 const Wrapper = styled.label`
   display: flex;
   justify-content: space-between;
-  padding-top: 10px;
+  padding: 15px 0;
 `

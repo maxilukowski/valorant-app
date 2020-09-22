@@ -5,6 +5,7 @@ import axios from 'axios'
 import { useEffect } from 'react'
 import HistoryIndex from './components/HistoryPage/HistoryIndex'
 import { Switch, Route, Redirect } from 'react-router-dom'
+import Header from './components/Header'
 
 export default function App() {
   const [allStats, setAllStats] = useState([])
@@ -23,6 +24,7 @@ export default function App() {
   return (
     <Container>
       <Redirect exact from='/' to='Home' />
+      <Header togglePage={togglePages} text='History' />
       {isKdaForm ? (
         <Switch>
           <Route path='/'>
@@ -40,12 +42,17 @@ export default function App() {
   )
 
   async function setAllInfo({ hero, kda, map, winOrLoss }) {
-    await axios.post(process.env.REACT_APP_API_URL + '/stats', {
-      id: Date.now(),
-      kda,
-      heroPicked: hero,
-      mapPlayed: map,
-      winOrLoss,
+    await axios({
+      method: 'post',
+      url: process.env.REACT_APP_API_URL + '/stats',
+      data: {
+        id: Date.now(),
+        kda,
+        heroPicked: hero,
+        mapPlayed: map,
+        winOrLoss,
+      },
+      headers: { 'X-developerName': 'max' },
     })
     getUserData()
   }
@@ -58,4 +65,5 @@ export default function App() {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  font-size: 1.5rem;
 `

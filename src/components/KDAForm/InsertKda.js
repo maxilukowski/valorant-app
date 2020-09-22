@@ -10,7 +10,7 @@ export default ({ setFormData, formData }) => {
         return (
           <StyledLabel key={formItemName}>
             {formItemName}
-            <input
+            <StyledInput
               name={formItemName}
               type='number'
               value={formData[formItemName]}
@@ -36,10 +36,14 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-top: 20px;
 `
 const StyledLabel = styled.label`
   display: flex;
   justify-content: space-between;
-  padding-top: 10px;
+  padding-bottom: 10px;
+`
+const StyledInput = styled.input`
+  background-color: #eddcd2;
+  color: #264653;
+  border: none;
 `

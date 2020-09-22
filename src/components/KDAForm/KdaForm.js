@@ -4,11 +4,10 @@ import MapOptions from './MapOptions'
 import WinOrLoss from './WinOrLoss'
 import styled from 'styled-components'
 import HeroOptions from './HeroOptions'
-import { SubmitButton, ToggleButton } from '../Button'
+import { SubmitButton } from '../Button'
 import LastGameKda from './LastGameKda'
-import { Link } from 'react-router-dom'
 
-export default ({ onSubmit, togglePage }) => {
+export default ({ onSubmit }) => {
   const [form, setForm] = useState({
     kill: '',
     death: '',
@@ -20,9 +19,6 @@ export default ({ onSubmit, togglePage }) => {
 
   return (
     <Container>
-      <Link to='/History'>
-        <ToggleButton togglePage={togglePage} text='History' />
-      </Link>
       <StyledForm onSubmit={handleSubmit}>
         <InsertKda setFormData={setForm} formData={form} />
         <LastGameKda evaluateKda={evaluateKda} formData={form} />
@@ -70,12 +66,23 @@ const Container = styled.div`
   padding: 10px;
   display: flex;
   flex-direction: column;
-  background: #e9c46a;
+  background: #eddcd2;
   height: 100vh;
+  padding: 20px 10px;
+  padding-top: 50px;
 `
 
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  padding-top: 20px;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 30px;
+  background: #f4a261;
+  height: 80vh;
+  border-radius: 4px;
+  box-shadow: inset 0 -0.6em 1em -0.35em rgba(0, 0, 0, 0.17),
+    inset 0 0.6em 2em -0.3em rgba(255, 255, 255, 0.15),
+    inset 0 0 0em 0.05em rgba(255, 255, 255, 0.12);
+  color: #264653;
 `

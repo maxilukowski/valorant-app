@@ -41,6 +41,34 @@
       "heroPicked": "Sova",
       "mapPlayed": "Haven",
       "winOrLoss": ""
+    },
+    {
+      "id": 1600690152633,
+      "kda": 0,
+      "heroPicked": "",
+      "mapPlayed": "",
+      "winOrLoss": ""
+    },
+    {
+      "id": 1600690384099,
+      "kda": 0,
+      "heroPicked": "",
+      "mapPlayed": "",
+      "winOrLoss": ""
+    },
+    {
+      "id": 1600704427828,
+      "kda": 2,
+      "heroPicked": "Sova",
+      "mapPlayed": "Bind",
+      "winOrLoss": "Win"
+    },
+    {
+      "id": 1600705317726,
+      "kda": 2,
+      "heroPicked": "",
+      "mapPlayed": "",
+      "winOrLoss": ""
     }
   ]
 }

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 export default ({ formData, evaluateKda }) => {
   return (
     <Wrapper>
-      your kda this game <span>{evaluateKda(formData)}</span>
+      KDA <span>{evaluateKda(formData)}</span>
     </Wrapper>
   )
 }
@@ -12,5 +12,4 @@ export default ({ formData, evaluateKda }) => {
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  padding-top: 10px;
 `
