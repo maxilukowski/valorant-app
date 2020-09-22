@@ -15,6 +15,17 @@ export default function App() {
     const { data } = await axios.get(process.env.REACT_APP_API_URL + '/stats')
     setAllStats(data)
   }
+  // with FETCH
+  /* function getUserData() {
+    fetch(process.env.REACT_APP_API_URL + '/stats').then((response) =>
+      response.json().then((data) => setAllStats(data))
+    )
+  } */
+  /* async function getUserData() {
+    const response = await fetch(process.env.REACT_APP_API_URL + '/stats')
+    const data = await response.json()
+    setAllStats(data)
+  } */
 
   useEffect(() => {
     getUserData()
@@ -40,6 +51,24 @@ export default function App() {
   )
 
   async function setAllInfo({ hero, kda, map, winOrLoss }) {
+    console.log(hero)
+    const response = await fetch(process.env.REACT_APP_API_URL + '/stats', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        id: Date.now(),
+        kda,
+        heroPicked: hero,
+        mapPlayed: map,
+        winOrLoss,
+      }),
+    })
+    return response.json()
+  }
+
+  /*   async function setAllInfo({ hero, kda, map, winOrLoss }) {
     await axios.post(process.env.REACT_APP_API_URL + '/stats', {
       id: Date.now(),
       kda,
@@ -48,7 +77,7 @@ export default function App() {
       winOrLoss,
     })
     getUserData()
-  }
+  } */
 
   function togglePages() {
     setIsKdaForm(!isKdaForm)

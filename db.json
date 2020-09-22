@@ -22,13 +22,6 @@
       "winOrLoss": "Win"
     },
     {
-      "id": 1600519058537,
-      "kda": "0.1",
-      "heroPicked": "Pheonix",
-      "mapPlayed": "Haven",
-      "winOrLoss": ""
-    },
-    {
       "id": 1600520552094,
       "kda": 67,
       "heroPicked": "Omen",
@@ -41,6 +34,30 @@
       "heroPicked": "Sova",
       "mapPlayed": "Haven",
       "winOrLoss": ""
+    },
+    {
+      "id": 1600788363342,
+      "kda": 0,
+      "heroPicked": "",
+      "mapPlayed": "",
+      "winOrLoss": ""
+    },
+    {
+      "id": 1600788372180,
+      "kda": 166666667,
+      "heroPicked": "Sage",
+      "mapPlayed": "",
+      "winOrLoss": ""
+    },
+    {
+      "id": 1600788372181
+    },
+    {
+      "id": 1600788477780,
+      "kda": 2,
+      "heroPicked": "Sage",
+      "mapPlayed": "Bind",
+      "winOrLoss": "Win"
     }
   ]
 }
