@@ -5,17 +5,19 @@ import styled from 'styled-components'
 export default ({ togglePage }) => {
   return (
     <Container>
-      <Link to='/History'>
-        <NavButton>History</NavButton>
-      </Link>
       <Link to='/Home'>
         <NavButton>Home</NavButton>
+      </Link>
+      <Link to='/History'>
+        <NavButton>History</NavButton>
       </Link>
     </Container>
   )
 }
 
 const Container = styled.nav`
+  display: flex;
+  justify-content: space-between;
   background: #264653;
   height: 48px;
   position: fixed;
