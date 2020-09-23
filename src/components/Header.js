@@ -6,16 +6,16 @@ export default ({ togglePage }) => {
   return (
     <Container>
       <Link to='/History'>
-        <NavButton onClick={() => togglePage()}>History</NavButton>
+        <NavButton>History</NavButton>
       </Link>
       <Link to='/Home'>
-        <NavButton onClick={() => togglePage()}>Home</NavButton>
+        <NavButton>Home</NavButton>
       </Link>
     </Container>
   )
 }
 
-const Container = styled.div`
+const Container = styled.nav`
   background: #264653;
   height: 48px;
   position: fixed;

@@ -1,15 +1,13 @@
 import React from 'react'
-import { ToggleButton } from '../Button'
 import styled from 'styled-components'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import DisplayHeroAndMapPlayed from './DisplayHeroAndMapPlayed'
 import LastFiveGames from './LastFiveGames'
-import { Link } from 'react-router-dom'
 
 const gameStatsKeys = ['mapPlayed', 'heroPicked']
 
-export default ({ gameStats, togglePage }) => {
+export default ({ gameStats }) => {
   const [gameStatsCounted, setGameStatsCounted] = useState({
     heroPicked: {},
     mapPlayed: {},
@@ -24,9 +22,6 @@ export default ({ gameStats, togglePage }) => {
     <Container>
       <StyledDiv>
         <span style={{ marginTop: '10px ' }}>HistoryPage</span>
-        <Link to='/Home'>
-          <ToggleButton togglePage={togglePage} text='Home' />
-        </Link>
       </StyledDiv>
       <div> Matches played: {gameStats.length}</div>
       <div>Your avg KDA :{getAvgKda(gameStats)} </div>

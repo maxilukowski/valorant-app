@@ -25,19 +25,14 @@ export default function App() {
     <Container>
       <Redirect exact from='/' to='Home' />
       <Header togglePage={togglePages} text='History' />
-      {isKdaForm ? (
-        <Switch>
-          <Route path='/'>
-            <KdaForm onSubmit={setAllInfo} togglePage={togglePages} />
-          </Route>
-        </Switch>
-      ) : (
-        <Switch>
-          <Route path='/History'>
-            <HistoryIndex togglePage={togglePages} gameStats={allStats} />
-          </Route>
-        </Switch>
-      )}
+      <Switch>
+        <Route path='/Home'>
+          <KdaForm onSubmit={setAllInfo} togglePage={togglePages} />
+        </Route>
+        <Route path='/History'>
+          <HistoryIndex gameStats={allStats} />
+        </Route>
+      </Switch>
     </Container>
   )
 
