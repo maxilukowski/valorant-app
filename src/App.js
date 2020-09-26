@@ -11,16 +11,16 @@ export default function App() {
   // services.js + (http service)
   const [isKdaForm, setIsKdaForm] = useState(true)
 
-  async function getUserData() {
+  /* async function getUserData() {
     const { data } = await axios.get(process.env.REACT_APP_API_URL + '/stats')
     setAllStats(data)
-  }
-  // with FETCH
-  /* function getUserData() {
-    fetch(process.env.REACT_APP_API_URL + '/stats').then((response) =>
-      response.json().then((data) => setAllStats(data))
-    )
   } */
+  // with FETCH
+  function getUserData() {
+    fetch(process.env.REACT_APP_API_URL + '/stats')
+      .then((response) => response.json())
+      .then((data) => setAllStats(data))
+  }
   /* async function getUserData() {
     const response = await fetch(process.env.REACT_APP_API_URL + '/stats')
     const data = await response.json()
